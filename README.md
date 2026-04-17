@@ -1,0 +1,1 @@
+# CV-P1-ObjectDetectionStrategies
