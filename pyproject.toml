@@ -1,0 +1,8 @@
+[project]
+name = "cv-p1-objectdetectionstrategies"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "opencv-python>=4.13.0.92",
+    "ultralytics>=8.4.38",
+]
