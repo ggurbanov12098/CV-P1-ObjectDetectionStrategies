@@ -14,7 +14,8 @@ def detect_license_plate_classical(
     frame: np.ndarray,
     box_color: tuple[int, int, int] = (0, 255, 0),
     box_thickness: int = 2,
-) -> np.ndarray:
+    return_count: bool = False,
+) -> np.ndarray | tuple[np.ndarray, int]:
     """Detect license-plate candidates in one image/frame using classical CV.
 
     Pipeline:
@@ -44,6 +45,8 @@ def detect_license_plate_classical(
     contours_info = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     contours = contours_info[0] if len(contours_info) == 2 else contours_info[1]
 
+    detection_count = 0
+
     for contour in contours:
         perimeter = cv2.arcLength(contour, closed=True)
         if perimeter <= 0:
@@ -65,6 +68,10 @@ def detect_license_plate_classical(
         if 2.0 <= aspect_ratio <= 5.0:
             # 7) Visualization
             cv2.rectangle(output, (x, y), (x + w, y + h), box_color, box_thickness)
+            detection_count += 1
+
+    if return_count:
+        return output, detection_count
 
     return output
 
