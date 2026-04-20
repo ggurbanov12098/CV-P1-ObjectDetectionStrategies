@@ -1,4 +1,5 @@
 # CV-P1-ObjectDetectionStrategies
+[Demo](https://youtu.be/B7SXxYrOMVg?si=iCXUw4inD-MfP1fh)
 
 This project compares two license-plate detection strategies on CCPD data:
 
